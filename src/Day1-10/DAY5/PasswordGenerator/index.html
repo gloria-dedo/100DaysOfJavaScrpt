@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        input:checked ~ .check-icon {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 font-[Arial] flex justify-center items-center h-screen">
+    <div class="w-[400px] p-4 bg-slate-800 text-white rounded-md shadow-md">
+        <div class="text-center mb-4">
+            <p class="text-xl text-slate-300">Password Generator</p>
+        </div>
+        <div class="flex justify-between items-center bg-slate-700 p-2 rounded-md">
+            <label for="generatedPassword" class="text-lg font-mono text-slate-300"> Copy Password!</label>
+            <span id="clipboardIcon" class="cursor-pointer text-green-400" onclick="copyPassword()"><i class="fa fa-clipboard" aria-hidden="true"></i></span>
+        </div>
+        <input id="generatedPassword" type="text" class="w-full mt-2 p-2 rounded-md bg-slate-900 text-slate-300" readonly>
+        <div class="mt-4">
+            <label for="characterLength" class="text-sm font-mono">Character Length</label>
+            <div class="flex justify-between items-center mt-1">
+                <input type="range" min="1" max="100" value="10" class="slider w-full bg-gray-900 accent-green-400 appearance-none rounded-lg h-2" id="characterLength">
+                <span id="characterValue" class="text-sm font-mono text-green-400 ml-2">10</span>
+            </div>
+        </div>
+        <div class="mt-3">
+            <input class="w-4 h-4 accent-green-500 border-2" type="checkbox" id="includeUppercase" name="includeUppercase">
+            <label class="text-sm text-slate-200 font-light m-1" for="includeUppercase">Include Upper Case Letters</label><br>
+            <input class="w-4 h-4 accent-green-500 border-2" type="checkbox" id="includeLowercase" name="includeLowercase">
+            <label class="text-sm text-slate-200 font-light m-1" for="includeLowercase">Include Lower Case Letters</label><br>
+            <input class="w-4 h-4 accent-green-500 border-2" type="checkbox" id="includeNumbers" name="includeNumbers">
+            <label class="text-sm text-slate-200 font-light m-1" for="includeNumbers">Include Numbers</label><br>
+            <input class="w-4 h-4 accent-green-500 border-2" type="checkbox" id="includeSymbols" name="includeSymbols">
+            <label class="text-sm text-slate-200 font-light m-1" for="includeSymbols">Include Symbols</label><br>
+        </div>
+        <div class="flex justify-between items-center mt-3 bg-slate-700 p-2 rounded-md">
+            <p class="text-xs font-thin text-slate-400">STRENGTH</p>
+            <span id="passwordStrength" class="text-sm font-mono text-slate-200">Weak</span>
+        </div>
+        <!-- <div class="flex justify-center mt-3">
+            <button class="text-slate-950 font-bold bg-green-600 p-2 rounded-md" onclick="generatePassword()">Generate <i class="fa fa-long-arrow-right ml-2" aria-hidden="true"></i></button>
+        </div> -->
+
+        <div class="flex p-2 justify-center mt-3 rounded-sm bg-green-600">
+            <button class="text-slate-950 font-bold" onclick="generatePassword()">Generate <i class="fa fa-long-arrow-right ml-2" aria-hidden="true"></i></button>
+       </div>
+
+
+    </div>
+
+</body>
+<script src="/src/Day1-10/DAY5/js/index.js" type="text/javascript"></script>
+</html>

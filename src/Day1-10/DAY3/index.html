@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="/dist/output.css" />
+  </head>
+  <style>
+    input {
+      
+      padding: 5px;
+      width: fit-content;
+      border: solid 1px #9091a8;
+      border-radius: 6px;
+    }
+
+    /* .control-form {
+      margin-bottom: 10px;
+      padding-bottom: 20px;
+      
+    } */
+
+    /* .control-form label {
+      display: inline-block;
+      margin-bottom: 5px;
+    } */
+
+    /* .control-form input {
+      border: 2px solid #f7f7f7;
+      border-radius: 4px;
+      display: block;
+      font-family: inherit;
+      font-size: 14px;
+      padding: 10px;
+      width: 100%;
+    } */
+
+    /* .control-form input:focus {
+      outline: 0;
+      border-color: #777;
+    } */
+
+    .control-form.success input {
+      border-color: #2ecc71;
+    }
+    .control-form.fail input {
+      border-color: #e74c3c;
+    }
+
+     i{
+      visibility: hidden;
+      position: absolute;
+      /* top: 40px;
+      right: 10px; */
+    }
+
+    .control-form.success i.fa-check-circle {
+      color: #2ecc71;
+      visibility: visible;
+    }
+    .control-form.fail i.fa-exclamation-circle {
+      color: #e74c3c;
+      visibility: visible;
+    }
+
+    .control-form small {
+      color: #e74c3c;
+      
+      visibility: hidden;
+    }
+
+    .control-form.fail small {
+      visibility: visible;
+    }
+  </style>
+  <body
+    style="font-family: [satoshi]; background-color: #f2f2f2"
+    class="w-full h-screen flex"
+  >
+    <div class="flex h-full">
+      <div class="w-1/2 bg-white p-6">
+        <img class="w-28" src="./SVG/logo2.svg" alt="logo" />
+        <img
+          class="mt-14 w-5/6"
+          src="./SVG/signupImage.svg"
+          alt="signupImage"
+        />
+        <p class="mt-10">Step Into Tomorrow with a Simple Click</p>
+        <a href="#" class="text-[#9A22C2] font-medium text-sm">Learn more</a>
+      </div>
+      <div class="w-1/2 bg-gray-100 p-8 flex justify-center h-full">
+        <form
+          id="form"
+          class="justify-center bg-white mt-2 px-10 py-5 text-sm rounded-md w-4/5 h-[550px]"
+        >
+          <p class="text-lg font-medium mt-2">Join Us</p>
+          <p class="text-lg font-medium">Create a NovaFlux Account</p>
+          <p class="text-xs font-normal mb-4">
+            Be part of millions of fluxers worldwide
+          </p>
+          <div class="space-y-2">
+            <div class="flex gap-2">
+              <div class="control-form">
+                <input
+                  class=""
+                  type="text"
+                  id="Fname"
+                  name="Fname"
+                  placeholder="First Name"
+                />
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                <small>Error Message</small>
+              </div>
+              <div class="control-form">
+                <input
+                  type="text"
+                  id="Lname"
+                  name="Lname"
+                  placeholder="Last Name"
+                />
+                <small>Error Message</small>
+              </div>
+            </div>
+            <div class="control-form">
+              <input
+                style="width: 372px"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+              />
+              <i class="fa fa-check-circle" aria-hidden="true"></i>
+                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="control-form">
+              <input
+              style="width: 372px"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+              />
+              <i class="fa fa-check-circle" aria-hidden="true"></i>
+                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="control-form">
+              <input
+              style="width: 372px"
+                id="confirmPassword"
+                name="confirm"
+                placeholder="Confirm password"
+              />
+              <i class="fa fa-check-circle" aria-hidden="true"></i>
+                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                <small>Error Message</small>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="p-2 mt-3 rounded-md text-white hover:bg-black bg-[#9A22C2] w-[372px]"
+          >
+            Sign Up</button
+          ><br />
+          <img class="mt-8" src="./SVG/seperator.svg" />
+          <div
+            class="flex border border-[#9091A8] p-2 rounded-md justify-center mt-3"
+          >
+            <img src="./SVG/googleLogo.svg" width="20px" />
+            <button>Continue with google</button><br />
+          </div>
+
+          <button class="flex justify-center items-center w-full mt-4">
+            Already have an account?
+            <span class="text-[#9A22C2] font-medium text-sm">Login</span>
+          </button>
+          <!-- <input type="password" id="password" name="password"><br> -->
+          <!-- <input type="submit" value="Submit">  -->
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="./js/index.js" type="text/javascript"></script>
+</html>

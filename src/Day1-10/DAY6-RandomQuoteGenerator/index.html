@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="/dist/output.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body
+    class="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ... flex justify-center font-[satoshi]">
+    <content>
+        <div class="bg-white mt-40 h-[300px] w-[600px] grid justify-center items-center">
+            <div class="grid justify-center items-center">
+                <div class="mx-auto justify-center items-center p-2">
+                    <i class="fa fa-quote-left fa-2x mr-3" aria-hidden="true"></i>
+                    <span id="quote-content" class="text-sky-600 text-xl font-medium">Whatever the mind of man can
+                        conceive and believe, it can
+                        achieve</span>
+                    <i class="fa fa-quote-right fa-2x ml-3" aria-hidden="true"></i>
+                </div>
+                <p class="flex justify-center mt-3 text-xl font-medium author">
+                    Napoleon Hill
+                </p>
+                <div class="flex items-center justify-center">
+                    <button onclick="toggleDarkMode();" id="generate-btn"
+                        class="border-2 border-sky-500 text-sky-600 mt-3 hover:bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-60% w-[180px] p-2 rounded-sm hover:text-white font-medium">
+                        Generate Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div>This is random</div>
+    </content>
+</body>
+<script src="/src/Day1-10/DAY6-RandomQuoteGenerator/js/index.js" type="text/javascript"></script>
+
+</html>
