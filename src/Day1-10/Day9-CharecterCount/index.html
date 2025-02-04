@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Character Coount</title>
+    <link rel="stylesheet" href="/dist/output.css" />
+  </head>
+  <body
+    class="bg-gradient-to-r from-pink-300 via-purple-300 to-blue-300  font-[satoshi]"
+  >
+    <div class="flex justify-center items-center h-screen ">
+        <div class=" bg-white  w-[500px] px-6 py-6 rounded-md grid justify-center drop-shadow-md ">
+             <h2 class="text-2xl text-black font-bold mb-3">Live Character Counter</h2>
+             <textarea
+             class="border border[#F2F2F2] outline-none bg-[#fae5f7] rounded-md px-4 py-4"
+             name="textarea"
+             id="textarea"
+             cols="50"
+             rows="5"
+             placeholder="Type your text here to check its length."
+             onkeyup="countingCharacter();"
+           ></textarea>
+           <p class="text-lg font-medium mt-3">Total Characters typed: <span class="counter text-indigo-600 text-2xl font-bold">0</span></p>
+        </div>
+       
+    </div>
+  </body>
+  <script src="./js/app.js" type="text/javascript"></script>
+</html>

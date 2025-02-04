@@ -7,7 +7,17 @@ module.exports = {
   ],
   darkMode: 'selector',
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        fade: {
+          from: { opacity: '0.4' },
+          to: { opacity: '1' },
+        },
+      },
+      animation: {
+        fade: 'fade 1.5s ease-in-out',
+      },
+    },
   },
   plugins: [],
 }
