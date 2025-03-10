@@ -7,59 +7,7 @@
     <title>Add to Cart</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="/dist/output.css" />
-    <style>
-        .shake {
-            animation: shake 0.5s ease-in-out;
-        }
-
-        @keyframes shake {
-
-            0%,
-            100% {
-                transform: rotate(0);
-            }
-
-            25% {
-                transform: rotate(10deg);
-            }
-
-            75% {
-                transform: rotate(-10deg);
-            }
-        }
-
-        #cartDiv {
-            position: relative;
-            cursor: pointer;
-        }
-
-        #cartDiv::after {
-            content: attr(data-totalitems);
-            font-size: 18px;
-            background: orange;
-            color: white;
-            padding: 4px 6px;
-            border-radius: 100%;
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            opacity: 0.8;
-        }
-
-        .slide-in {
-            animation: slideIn 0.3s ease-out forwards;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-            }
-
-            to {
-                transform: translateX(0);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./css/index.css" />
 </head>
 
 <body class="flex justify-center h-screen font-[satoshi]">
@@ -163,16 +111,7 @@
                 </div>
             </div>
         </div>
-        <!-- <div id="orderMessage" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div class="bg-white p-8 rounded-lg text-center">
-                <div class="w-24 h-24 bg-orange-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <i class="fa fa-check text-4xl text-orange-600"></i>
-                </div>
-                <h2 class="text-4xl font-bold mb-2">Woo Hoo!</h2>
-                <p class="text-gray-600">Order placed successfully.</p>
-            </div>
-        </div> -->
-
+    
         <div id="orderMessage"
             class="justify-center fixed inset-0 items-center flex flex-col hidden bg-black bg-opacity-50">
             <div class=" bg-orange-100 max-w-lg p-8 flex flex-col justify-center items-center w-full">

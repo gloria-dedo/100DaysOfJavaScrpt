@@ -1,0 +1,53 @@
+
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: rotate(0);
+            }
+
+            25% {
+                transform: rotate(10deg);
+            }
+
+            75% {
+                transform: rotate(-10deg);
+            }
+        }
+
+        #cartDiv {
+            position: relative;
+            cursor: pointer;
+        }
+
+        #cartDiv::after {
+            content: attr(data-totalitems);
+            font-size: 18px;
+            background: orange;
+            color: white;
+            padding: 4px 6px;
+            border-radius: 100%;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            opacity: 0.8;
+        }
+
+        .slide-in {
+            animation: slideIn 0.3s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+   

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="/dist/output.css" />
+  </head>
+  <body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 min-h-screen flex justify-center items-center p-4">
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-4 right-4 opacity-0 transition-opacity duration-500 invisible">
+      <div class="bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center">
+        <i class="fas fa-check-circle mr-2"></i>
+        <span>QR Code downloaded successfully!</span>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
+      <div class="flex flex-col space-y-6">
+        <h1 class="text-2xl font-semibold text-slate-900 text-center">
+          QR Code Generator
+        </h1>
+        <input
+          id="qrInput"
+          placeholder="Input text or URL to generate QR code"
+          class="w-full h-12 px-3 py-2 rounded-md border text-center border-slate-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none"
+        />
+        <div id="qrcode" class="flex justify-center items-center"></div>
+        <button
+          onclick="downloadQR()"
+          class="bg-purple-500 p-3 w-full text-sm hover:bg-purple-600 rounded-md text-white flex items-center justify-center"
+        >
+          Download Your QR Code
+          <i class="fa fa-download pl-2" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Initialize QR Code instance
+      let qrcode = new QRCode(document.getElementById("qrcode"), {
+        width: 200,
+        height: 200,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+
+      // Generate initial QR code
+      qrcode.makeCode("Scan me to generate your QR code!");
+
+      // Add input event listener
+      document.getElementById("qrInput").addEventListener("input", function() {
+        generateQr();
+      });
+
+      // Function to show toast
+      function showToast() {
+        const toast = document.getElementById('toast');
+        toast.classList.remove('invisible');
+        toast.classList.add('opacity-100');
+        
+        // Hide toast after 3 seconds
+        setTimeout(() => {
+          toast.classList.remove('opacity-100');
+          toast.classList.add('opacity-0');
+          setTimeout(() => {
+            toast.classList.add('invisible');
+          }, 300);
+        }, 3000);
+      }
+
+      // Function to generate QR code
+      function generateQr() {
+        const input = document.getElementById("qrInput");
+        if (input.value.trim() === "") {
+          alert("Input field cannot be blank!");
+          return;
+        }
+        qrcode.makeCode(input.value);
+      }
+
+      // Function to download QR code
+      async function downloadQR() {
+        const qrContainer = document.getElementById("qrcode");
+        const canvas = await html2canvas(qrContainer);
+        
+        // Create temporary link
+        const link = document.createElement("a");
+        link.download = "qr-code.png";
+        link.href = canvas.toDataURL("image/png");
+        
+        // Trigger download
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Show success message
+        showToast();
+      }
+    </script>
+  </body>
+</html>

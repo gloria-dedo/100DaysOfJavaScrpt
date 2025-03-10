@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <style>
+        .message-container {
+            height: calc(100vh - 200px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4 max-w-2xl">
+        <!-- User Tabs -->
+        <div class="flex mb-4">
+            <button onclick="switchUser('user1')" id="user1Tab" class="flex-1 py-2 px-4 bg-blue-500 text-white font-semibold rounded-tl-lg">Alice</button>
+            <button onclick="switchUser('user2')" id="user2Tab" class="flex-1 py-2 px-4 bg-gray-300 text-gray-700 font-semibold rounded-tr-lg">Bob</button>
+        </div>
+
+        <!-- Chat Container -->
+        <div class="bg-white rounded-b-lg shadow-lg">
+            <!-- Messages Area -->
+            <div id="messageContainer" class="message-container overflow-y-auto p-4 space-y-4">
+                <!-- Messages will be inserted here -->
+            </div>
+
+            <!-- Input Area -->
+            <div class="border-t p-4">
+                <div class="flex space-x-2">
+                    <input type="text" id="messageInput" class="flex-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Type your message...">
+                    <button onclick="sendMessage()" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        Send
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentUser = 'user1';
+        const messages = [];
+        
+        function switchUser(user) {
+            currentUser = user;
+            document.getElementById('user1Tab').className = user === 'user1' 
+                ? 'flex-1 py-2 px-4 bg-blue-500 text-white font-semibold rounded-tl-lg'
+                : 'flex-1 py-2 px-4 bg-gray-300 text-gray-700 font-semibold rounded-tl-lg';
+            document.getElementById('user2Tab').className = user === 'user2'
+                ? 'flex-1 py-2 px-4 bg-blue-500 text-white font-semibold rounded-tr-lg'
+                : 'flex-1 py-2 px-4 bg-gray-300 text-gray-700 font-semibold rounded-tr-lg';
+            renderMessages();
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                messages.push({
+                    user: currentUser,
+                    text: message,
+                    timestamp: new Date().toLocaleTimeString()
+                });
+                input.value = '';
+                renderMessages();
+                scrollToBottom();
+            }
+        }
+
+        function renderMessages() {
+            const container = document.getElementById('messageContainer');
+            container.innerHTML = '';
+            
+            messages.forEach(msg => {
+                const isCurrentUser = msg.user === currentUser;
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `flex ${isCurrentUser ? 'justify-end' : 'justify-start'}`;
+                
+                messageDiv.innerHTML = `
+                    <div class="${isCurrentUser ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'} rounded-lg px-4 py-2 max-w-[70%]">
+                        <div class="font-semibold text-sm">${msg.user === 'user1' ? 'Alice' : 'Bob'}</div>
+                        <div>${msg.text}</div>
+                        <div class="text-xs ${isCurrentUser ? 'text-blue-100' : 'text-gray-500'} mt-1">${msg.timestamp}</div>
+                    </div>
+                `;
+                
+                container.appendChild(messageDiv);
+            });
+        }
+
+        function scrollToBottom() {
+            const container = document.getElementById('messageContainer');
+            container.scrollTop = container.scrollHeight;
+        }
+
+        // Handle Enter key press
+        document.getElementById('messageInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

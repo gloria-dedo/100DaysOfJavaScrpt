@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget App</title>
+    <link rel="stylesheet" href="/dist/output.css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* .form-container{
+            display: flex;
+        } */
+    </style>
+   
+</head>
+
+<body class="w-full h-screen flex bg-[#f2f2f2] font-[satoshi] justify-center">
+    <div class="h-full w-[60%]">
+        <!-- <div class="flex">
+            <div class="w-1/2 p-6">
+                <div class="bg-white p-3 flex flex-col gap-3 drop-shadow-sm rounded-md h-[210px]">
+                    <h1 class="text-2xl font-medium">Budget</h1>
+                    <input placeholder="Enter Total Amount" class="border-2 border-[#9091A8] rounded-md p-2 text-sm" />
+                    <button
+                        class="bg-violet-500 hover:bg-violet-600 p-2 rounded-md text-white text-sm focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700">
+                        Set Budget
+                    </button>
+                </div>
+            </div>
+            <div class="w-1/2 p-6">
+                <div class="bg-white p-3 flex flex-col gap-3 drop-shadow-sm rounded-md">
+                    <h1 class="text-2xl font-medium">Expenses</h1>
+                    <input placeholder="name of Item" class="border-2 border-[#9091A8] rounded-md p-2 text-sm" />
+                    <input placeholder="($) Amount to be spend "
+                        class="border-2 border-[#9091A8] rounded-md p-2 text-sm" />
+                    <button
+                        class="bg-violet-500 hover:bg-violet-600 p-2 rounded-md text-white text-sm focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700">
+                        Set Budget
+                    </button>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="bg-violet-600 text-white p-6 rounded-md mt-9">
+           <table class=" w-full text-center border-collapse">
+            <tr class=" ">
+                <th class="p-2 text-xl font-bold">
+                    Total Budget($)
+                </th>
+                <th class="p-2 text-xl font-bold">
+                    Expenses($)
+                </th>
+                <th class="p-2 text-xl font-bold">
+                    Balance($)
+                </th>
+            </tr>
+            <tr class="text-slate-300">
+                <td id="total-budget">0.00</td>
+                <td id="totalExpenses">0.00</td>
+                <td id="totalBalance">0.00</td>
+            </tr>
+           </table>
+        </div>
+        <div class="bg-white mt-6 p-3 rounded-md drop-shadow-sm">
+            <header class="flex my-4 flex-grow justify-between">
+              <h1 class="text-lg  ml-[90px]">List of Expenses</h1> 
+              <div class="space-x-2">
+              <button onclick="openExpensesForm()" class="  text-violet-500 hover:bg-violet-600 hover:text-white p-3 border border-[#EAEAEA] rounded-md bg-[#F9FAFA] text-sm focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700">Set Expenses</button>  
+              <button onclick="openBudgetForm()" class="  bg-violet-500 hover:bg-violet-600 p-3 rounded-md text-white text-sm focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700">+ Add new budget</button>
+              
+              </div> 
+              
+            </header>
+            
+            <table class=" w-full text-center border-collapse">
+                <tr class="bg-[#F5F5F5]">
+                    <th class="p-2 text-lg font-medium text-slate-600">
+                       Item Name
+                    </th>
+                    <th class="p-2 text-lg font-medium text-slate-600">
+                        Amount($)
+                    </th>
+                    <th class="p-2 text-lg font-medium text-slate-600">
+                        Actions
+                    </th>
+                </tr>
+                <!-- <tr class="text-slate-600 font-normal">
+                    <td class="p-4" id="itemName">Nike Shoes</td>
+                    <td class="p-4" id="itemAmount">120</td>
+                     <td class="p-4" ><i id="editBtn" class="fas fa-edit" aria-hidden="true"></i> <i id="deleteBtn" class="fas fa-trash" aria-hidden="true"></i></td>
+                </tr> -->
+                <tbody id="expensesList"></tbody>
+                
+
+            </table>
+        </div>
+        <div id="ExpensesForm" class=" hidden  form-container justify-center fixed inset-0 items-center flex  flex-col  bg-black bg-opacity-70">
+            
+            <div class="w-[30%] p-6">
+                <div class="bg-white p-3 flex flex-col gap-3 drop-shadow-sm rounded-md">
+                    <h1 id="expenseFormTitle" class="text-xl font-normal">Add expenses</h1>
+                    <div>
+                        <input required id="itemNameList" type="text" placeholder="name of Item" class="border-2 border-[#9091A8] rounded-md p-2 text-sm w-full" />
+                        <div id="nameError" class="hidden mt-2 p-2 text-sm text-red-500 bg-red-50 border border-red-200 rounded"></div>
+                    </div>
+                    <div>
+                        <input type="number" id="itemAmountList" placeholder="($) Amount to be spent" class="border-2 border-[#9091A8] rounded-md p-2 text-sm w-full" />
+                        <div id="amountError" class="hidden mt-2 p-2 text-sm text-red-500 bg-red-50 border border-red-200 rounded"></div>
+                    </div>
+                    <button id="addExpenseBtn"
+                        class="bg-violet-500 hover:bg-violet-600 p-2 rounded-md text-white text-sm focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700">
+                        Add Expenses
+                    </button>
+                    <button onclick="closeExpensesForm()" class="border border-violet-500 text-violet-500 hover:bg-violet-50 p-2 rounded-md text-sm">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="budgetForm" class=" hidden  form-container justify-center fixed inset-0 items-center flex  flex-col  bg-black bg-opacity-70">
+        <div class="w-[30%] p-6">
+            <div class="bg-white p-3 flex flex-col gap-3 drop-shadow-sm rounded-md h-[210px]">
+                <h1 class="text-xl font-medium">Set Budget Form</h1>
+                <div>
+                    <input id="budgetInput" type="number" placeholder="Enter Total Amount" class="border-2 border-[#9091A8] rounded-md p-2 text-sm w-full" />
+                    <div id="budgetError" class="hidden mt-2 p-2 text-sm text-red-500 bg-red-50 border border-red-200 rounded"></div>
+                </div>
+                <button onclick="setBudget()"
+                    class="bg-violet-500 hover:bg-violet-600 p-2 rounded-md text-white text-sm focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700">
+                    Set Budget
+                </button>
+                <button onclick="closeBudgetForm()" class="border border-violet-500 text-violet-500 hover:bg-violet-50 p-2 rounded-md text-sm">
+                    Cancel
+                </button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="./js/index.js" type="text/javascript"></script>
+</body>
+
+</html>
