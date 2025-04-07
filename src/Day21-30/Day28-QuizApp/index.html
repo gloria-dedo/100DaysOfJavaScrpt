@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="/dist/output.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .option-selected {
+            background-color: #ABD1C6 !important;
+            color: #004643;
+            
+        }
+        
+        .option-selected label {
+            color: #004643;
+        }
+        
+        .check-icon {
+            display: none;
+        }
+        
+        .option-selected .check-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            width: 20px;
+            height: 20px;
+            background-color: #004643;
+            border-radius: 50%;
+            padding: 4px;
+            box-sizing: border-box;
+        }
+        
+        .option-selected input[type="radio"] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="flex w-full min-h-screen bg-[#ABD1C6] justify-center items-center font[satoshi] text-slate-800">
+    <div class="flex flex-col items-center w-full p-4">
+        <h1 class="text-[36px] font-medium mb-4 text-slate-900">Quiz App</h1>
+        <div class="bg-[#EFF0F3] w-full max-w-xl p-8 rounded-lg shadow-md mx-auto h-full space-y-9">
+            <div class="flex justify-between text-lg">
+                <span id="previousBtn" class="cursor-pointer"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</span>
+                <p id="questionNum">1/10</p>
+            </div>
+            <div id="questionDisplay" class="bg-white p-6 rounded-md drop-shadow-md">
+                <p class="text-wrap text-lg" id="ques">
+                    Loading questions...
+                </p>
+            </div>
+            <div id="answersDiplay" class="text-lg font-medium space-y-3">
+                <!-- Options will be added here dynamically -->
+            </div>
+            <div>
+                <button id="nextBtn" class="bg-[#004643] hover:bg-black w-full rounded-md text-white text-lg p-3">Next</button>
+            </div>
+            <div id="resultPopup" class="hidden flex flex-col justify-center items-center space-y-2 w-full">
+                <div class="bg-[#004643] border-8 border-[#ABD1C6] flex flex-col justify-center items-center text-white p-4 text-center rounded-full w-[200px] h-[200px]">
+                   <p>Your Score </p>
+                   <span id="quizScore" class="font-medium text-2xl">0/10</span>
+                </div>
+                <div class="">
+                    <p id="successMessage" class="text-wrap text-2xl font-semibold flex flex-col">Congratulations <span class="text-wrap text-lg font-normal">Great Job, You did it!</span></p>
+                </div>
+                <div class="w-full">
+                    <button id="restartBtn" class="bg-[#004643] w-full hover:bg-black rounded-md text-white text-lg p-3">Play Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/index.js" type="text/javascript"></script>
+</body>
+
+</html>
