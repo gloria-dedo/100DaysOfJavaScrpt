@@ -88,15 +88,18 @@
                         <input id="weight" placeholder="Enter your weight" class="border border-[#9091a8] p-2 rounded-md w-[372px]">
                     </div>
                     <div class="grid mt-6 gap-3">
-                        <label for="kg" class=" text-[#64748B]">Height(in meters)<span class="text-red-400">*</span></label>
-                        <input id="height" placeholder="Enter your height" class="border border-[#9091a8] p-2 rounded-md w-[372px]">
+                        <label for="height" class="text-[#64748B]">Height<span class="text-red-400">*</span></label>
+                        <input id="height" placeholder="Enter your height in centimeters (e.g., 170)" class="border border-[#9091a8] p-2 rounded-md w-[372px]">
+                        <span class="text-xs text-gray-500">Enter height in centimeters (e.g., 170 cm)</span>
                     </div>
                     <button type="submit" class="p-2 mt-4 rounded-md text-white hover:bg-black bg-[#9A22C2] w-[372px]">Check BMI</button>
                     <!-- <div>Your BMI is ..</div> -->
 
                     <div id="bmiPopup" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50">
                         <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-lg shadow-lg z-[51] min-w-[350px] max-w-[450px]">
-                            <button onclick="closeBmiPopup()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl">&times;</button>
+                            <button onclick="closeBmiPopup()" class=" absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl">&times;</button>
+                          
+
                             
                             <h2 class="text-xl font-medium text-gray-900 mb-4">Your BMI Results</h2>
                             <div class="text-center space-y-4">

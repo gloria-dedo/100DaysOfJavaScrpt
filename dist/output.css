@@ -1943,6 +1943,11 @@ video {
   background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1));
 }
 
+.bg-purple-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(126 34 206 / var(--tw-bg-opacity, 1));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -2217,6 +2222,10 @@ video {
 
 .font-\[Lato\] {
   font-family: Lato;
+}
+
+.font-\[inter\] {
+  font-family: inter;
 }
 
 .text-2xl {
