@@ -1,19 +1,60 @@
+body {
+    background-color: #F9FAFA;
+    font-family: 'satoshi', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin: 1rem auto;
+        padding: 1.5rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+}
 .container{
-    height: 100%;
-    width: 40%;
-    padding: 2rem 0 2rem 0;
-    margin: 7rem 0 0 20rem;
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    margin: 2rem auto;
     border-radius: 10px;
-    /* background: linear-gradient(145deg, #ffffff, #e6e6e6); */
     background-color: #FFFFFF;
-    /* box-shadow:  20px 20px 60px #d9d9d9, 
-                -20px -20px 60px #ffffff; */
-                border: solid 1px #EAEAEA;
+    border: solid 1px #EAEAEA;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 form{
 
-    margin-left: 50px;
+    width: 100%;
     
+}
+
+.title {
+    font-size: 30px;
+    color: #D8643F;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label, p {
+    color: #64748B;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.required {
+    color: red;
 }
 .items{
     display: flex;
@@ -31,12 +72,35 @@ label, p{
     color: #64748B;
     font-size: 15px;
 }
-input{
-    width: 378px;
-    
+input, select {
+    width: 100%;
     padding: 10px;
     border-radius: 6px;
     border: solid 1px #9091A8;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+.btn-cancel {
+    background-color: #E0E0E0;
+    color: #64748B;
+}
+.btn-calculate {
+    background-color: #D8643F;
+    color: #fff;
 }
 button{
     width: 30%;
@@ -74,10 +138,17 @@ select{
     border: solid 1px #9091A8;
 }
 #tip-container{
-   font-weight: 700;
-    /* color: #D8643F;;  */
-    
+    #tip-container {
+        font-weight: 700;
+        font-size: 18px;
+        text-align: center;
+        margin-top: 1rem;
+        color: #D8643F;
+    }
 }
 .hiddenValue{
     display: none;
 }
+
+
+
