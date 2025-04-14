@@ -7,8 +7,8 @@
   <title>Form Validation</title>
   <base href="./">
   <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
-  <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/output.css">
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="/dist/output.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <style>
@@ -84,13 +84,13 @@
         <form id="form" class="space-y-4">
           <div class="flex gap-2">
             <div class="control-form relative w-full">
-              <input class="w-full" type="text" id="Fname" name="Fname" placeholder="First Name" />
+              <input class="w-full p-2 outline-none" type="text" id="Fname" name="Fname" placeholder="First Name" />
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>
               <small>Error Message</small>
             </div>
             <div class="control-form relative w-full">
-              <input class="w-full" type="text" id="Lname" name="Lname" placeholder="Last Name" />
+              <input class="w-full p-2 outline-none" type="text" id="Lname" name="Lname" placeholder="Last Name" />
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>
               <small>Error Message</small>
@@ -98,21 +98,21 @@
           </div>
           
           <div class="control-form relative">
-            <input class="w-full" type="email" id="email" name="email" placeholder="Enter your email" />
+            <input class="w-full  p-2 outline-none" type="email" id="email" name="email" placeholder="Enter your email" />
             <i class="fas fa-check-circle"></i>
             <i class="fas fa-exclamation-circle"></i>
             <small>Error Message</small>
           </div>
           
           <div class="control-form relative">
-            <input class="w-full" type="password" id="password" name="password" placeholder="Enter your password" />
+            <input class="w-full  p-2 outline-none" type="password" id="password" name="password" placeholder="Enter your password" />
             <i class="fas fa-check-circle"></i>
             <i class="fas fa-exclamation-circle"></i>
             <small>Error Message</small>
           </div>
           
           <div class="control-form relative">
-            <input class="w-full" type="password" id="confirmPassword" name="confirm" placeholder="Confirm password" />
+            <input class="w-full  p-2 outline-none" type="password" id="confirmPassword" name="confirm" placeholder="Confirm password" />
             <i class="fas fa-check-circle"></i>
             <i class="fas fa-exclamation-circle"></i>
             <small>Error Message</small>
